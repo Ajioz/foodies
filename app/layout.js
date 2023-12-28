@@ -1,0 +1,18 @@
+import MealHeader from '@/components/main-header/main-header';
+import './globals.css';
+
+export const metadata = {
+  title: 'Foodie Studio',
+  description: 'Delicious meals, shared by a food-loving community.',
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <MealHeader />
+        {children}
+      </body>
+    </html>
+  );
+}
