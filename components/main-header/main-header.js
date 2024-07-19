@@ -13,7 +13,7 @@ const MealHeader = () => {
       <HeaderBackground />
       <header className={style.header}>
         <Link href="/" className={style.logo}>
-          <Image src={logoImg} alt="logo" />
+          <Image src={logoImg} alt="logo" priority />
           Food Studio
         </Link>
         <nav className={style.nav}>
