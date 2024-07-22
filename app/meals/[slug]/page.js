@@ -1,25 +1,25 @@
-import React from 'react'
-import style from './page.module.css'
-import Image from 'next/image';
-import { getMeal } from '@/lib/meal';
-import { notFound } from 'next/navigation';
+import React from "react";
+import style from "./page.module.css";
+import Image from "next/image";
+import { getMeal } from "@/lib/meal";
+import { notFound } from "next/navigation";
 
-
-const generateMetadata = async({ params }) => {
+const generateMetadata = async ({ params }) => {
   const meal = await getMeal(params.slug);
-  if(!meal) return notFound();
+  if (!meal) return notFound();
   return {
     title: meal.title,
-    description: meal.summary
-  }
-}
+    description: meal.summary,
+  };
+};
 
+const MealDetailsPage = async ({ params }) => {
+  const meal = await getMeal(params.slug);
+  if (!meal) return notFound();
 
-const MealDetailsPage = async({ params }) => {
-  const meal  = await getMeal(params.slug);
-  if(!meal) return notFound();
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
-  
+
+
   return (
     <>
       <header className={style.header}>
@@ -44,6 +44,6 @@ const MealDetailsPage = async({ params }) => {
       </main>
     </>
   );
-}
+};
 
 export default MealDetailsPage;
